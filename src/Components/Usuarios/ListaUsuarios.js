@@ -40,14 +40,18 @@ function ListaUsuarios() {
       </form>
 
       {!usuarios && <div>No Data </div>}
-      {usuarios.map((usuario) => (
-        <Usuario
-          email={usuario.email}
-          nombre={usuario.nombre}
-          planta={usuario.planta}
-          key={usuario.id}
-        />
-      ))}
+      <ul>
+        {usuarios.map((usuario) => (
+          <li>
+            <Usuario
+              email={usuario.email}
+              nombre={usuario.nombre}
+              planta={usuario.planta}
+              key={usuario.id}
+            />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
