@@ -9,10 +9,11 @@ const Entregas = () => {
     setIsFilePicked(true);
   };
 
-  const handleSubmission = () => {
+  const handleSubmission = (e) => {
+    e.preventDefault();
     const formData = new FormData();
 
-    formData.append("File", selectedFile);
+    formData.append("archivo", selectedFile);
 
     fetch("http://localhost:3005/entregas/add", {
       method: "POST",
@@ -30,7 +31,7 @@ const Entregas = () => {
   return (
     <div>
       <form onSubmit={handleSubmission}>
-        <input type="file" name="file" onChange={changeHandler} />
+        <input type="file" name="archivo" onChange={changeHandler} />
         {isFilePicked ? (
           <div>
             <p>Filename: {selectedFile.name}</p>
